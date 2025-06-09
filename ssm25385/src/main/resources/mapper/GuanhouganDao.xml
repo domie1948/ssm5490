@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.GuanhouganDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.GuanhouganEntity" id="guanhouganMap">
+        <result property="yingpianmingcheng" column="yingpianmingcheng"/>
+        <result property="yingpianfenlei" column="yingpianfenlei"/>
+        <result property="yingpianfengmian" column="yingpianfengmian"/>
+        <result property="shangyingshijian" column="shangyingshijian"/>
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="xingming" column="xingming"/>
+        <result property="pingji" column="pingji"/>
+        <result property="pingyu" column="pingyu"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.GuanhouganVO" >
+		SELECT * FROM guanhougan  guanhougan         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.GuanhouganVO" >
+		SELECT  guanhougan.* FROM guanhougan  guanhougan
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.GuanhouganView" >
+
+		SELECT  guanhougan.* FROM guanhougan  guanhougan 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.GuanhouganView" >
+		SELECT * FROM guanhougan  guanhougan <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
